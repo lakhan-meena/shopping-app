@@ -1,20 +1,48 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<div class="register-form">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="login-header">
+      <h4 style="padding-top: 15px;">Login</h4>
+    </div>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= link_to "<i class='fa fa-facebook-square'></i> Login via Facebook".html_safe, user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-block fb-btn" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= link_to "<i class='fa fa-google-plus-square'></i> Login via Google".html_safe, user_google_oauth2_omniauth_authorize_path, class: "btn btn-primary btn-block google-btn" %>
+          </div>
+        </div>
+      </div>
+      <p class="divider-text">
+        <span class="bg-light">OR</span>
+      </p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.input :email, required: true, label: false, input_html: {placeholder: "Email", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password, required: true, label: false, input_html: {placeholder: "Password", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.button :submit, "Login", class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <span>Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %> </span><br />
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      </div>
+    </div>
+  <% end %>
+</div>

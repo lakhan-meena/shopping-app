@@ -1,21 +1,61 @@
-<h2>Sign up</h2>
+<div class="register-form">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="login-header">
+      <h4 style="padding-top: 15px;">Create Account</h4>
+    </div>
+    <div class="form-content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= link_to "<i class='fa fa-facebook-square'></i> Login via Facebook".html_safe, user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-block fb-btn" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= link_to "<i class='fa fa-google-plus-square'></i> Login via Google".html_safe, user_google_oauth2_omniauth_authorize_path, class: "btn btn-primary btn-block google-btn" %>
+          </div>
+        </div>
+      </div>
+      <p class="divider-text">
+        <span class="bg-light">OR</span>
+      </p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.input :first_name, required: true, label: false, input_html: {placeholder: "First Name", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :last_name, required: true, label: false, input_html: {placeholder: "Last Name", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :username, required: true, label: false, input_html: {placeholder: "Username", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :mobile_number, required: true, label: false, input_html: {placeholder: "Mobile Number", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :email, required: true, label: false, input_html: {placeholder: "Email", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password, required: true, label: false, input_html: {placeholder: "Password", class: "form-control"} %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password_confirmation, required: true, label: false, input_html: {placeholder: "Password Confirmation", class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <span>Have an account? <%= link_to "Login", new_session_path(resource_name) %> </span><br />
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :username, required: true %>
-    <%= f.input :mobile_number, required: true %>
-    <%= f.input :email, required: true %>
-    <%= f.input :password, required: true %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

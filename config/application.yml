@@ -1,0 +1,6 @@
+development:
+  APP_NAME: 'Shop App'
+  FACEBOOK_APP_ID: '565553727350627'
+  FACEBOOK_SECRET: '0f12fba02418182aae6d86cad1885f7a'
+  GOOGLE_CLIENT_ID: '1055228130490-7nrr30omms5emffd2gglgjle1vqrrqsm.apps.googleusercontent.com'
+  GOOGLE_CLIENT_SECRET: 'Aa5DwIWGlhLVO1yodH3moDrh'

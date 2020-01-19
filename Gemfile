@@ -40,8 +40,14 @@ gem 'devise', '~> 4.2'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
 gem 'rolify', '~> 5.2'
 
+# Social login
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 gem 'bootstrap', '~> 4.0'
+gem 'font-awesome-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'simple_form'
 gem 'mini_racer'
 gem 'toastr_rails'
+gem 'figaro'
