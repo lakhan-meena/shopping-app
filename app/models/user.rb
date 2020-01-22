@@ -3,10 +3,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :timeoutable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   validates :first_name, :last_name, :mobile_number, :username, presence: true
   validates :mobile_number, :username, uniqueness: true
+  auto_strip_attributes :first_name, :last_name, :mobile_number, :username, :email, squish: true
   before_save { self.email.downcase! }
+  after_save :asign_role
 
   def admin?
     has_role?(:admin)
+  end
+
+  def asign_role
+    self.add_role :default
   end
 
   def self.from_omniauth(auth)

@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  namespace :admin do
+    resources :categories
+  end
 end

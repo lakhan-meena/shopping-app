@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  after_action :assign_role, only: [:create]
   #after_action :send_account_activation_email, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -45,11 +44,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username, :mobile_number, :profile_picture])
   end
 
-  def assign_role
-    if current_user
-      current_user.add_role :default
-    end
-  end
   # def send_account_activation_email
   #   UserMailer.account_activation_email(current_user).deliver_now
   # end

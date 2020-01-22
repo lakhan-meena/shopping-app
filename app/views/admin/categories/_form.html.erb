@@ -1,0 +1,13 @@
+<%= simple_form_for [:admin, @category] do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :parent_id, label: "Belongs under this category", collection: @categories_tree, selected: @category.parent_id, include_blank: false %>
+    <%= f.input :name %>
+    <%= f.input :description, as: :text, input_html: {rows: 5} %>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to 'Cancel', admin_categories_path, class: 'btn btn-primary' %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

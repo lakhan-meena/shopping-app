@@ -1,0 +1,15 @@
+<h2> Category Details </h2>
+<p>
+  <b>Name:</b> <%= @category.name %><br/>
+  <b>Description:</b> <%= @category.description %>
+</p>
+<% if @category.children.present? %>
+  <h4>Childrens</h4>
+  <% @category.children.each do |children| %>
+    <p>
+      <b>Name:</b> <%= children.name %><br/>
+      <b>Description:</b> <%= children.description %>
+    </p>
+  <% end %>
+<% end %>
+<%= link_to 'Back', admin_categories_path %>
