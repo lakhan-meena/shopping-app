@@ -4,6 +4,7 @@ class Category < ApplicationRecord
   acts_as_tree order: 'name'
   validates :name, presence: true
   auto_strip_attributes :name, squish: true
+  has_many :products, dependent: :destroy
   #STATUS = %W{ Public Hidden Disabled }
 
   def self.categories_tree_list parent_id = 0,level = 0

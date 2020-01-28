@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6">
+            <h4>Product Details</h4>
+          </div>
+          <div class="col-6">
+            <%= link_to "Back", admin_products_path, class: "float-right btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>
+          <b>Title:</b> <%= @product.title %><br/>
+          <b>Availability:</b> <%= @product.status %><br/>
+          <b>SKU:</b> <%= @product.sku %><br/>
+          <b>Part Number:</b> <%= @product.part_number %><br/>
+          <b>Category:</b> <%= @product.category.name %><br/>
+          <b>Price:</b> <%= @product.price %><br/>
+          <b>Discount:</b> <%= @product.discount %><br/>
+          <b>Stock:</b> <%= @product.on_hand %><br/>
+          <b>Description:</b> <%= @product.description %>
+        </p>
+        <%= link_to 'Back', admin_products_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+

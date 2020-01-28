@@ -4,15 +4,15 @@
       <div class="card-header">
         <div class="row">
           <div class="col-6">
-            <h4>Edit Category</h4>
+            <h4>New Product</h4>
           </div>
           <div class="col-6">
-            <%= link_to "Back", admin_categories_path, class: "float-right btn btn-primary" %>
+            <%= link_to "Back", admin_products_path, class: "float-right btn btn-primary" %>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <%= render partial: 'form', category: @category %>
+        <%= render 'form', product: @product %>
       </div>
     </div>
   </div>

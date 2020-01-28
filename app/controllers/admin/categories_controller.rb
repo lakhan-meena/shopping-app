@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :set_category_tree, only: [:new, :create]
+  before_action :set_category_tree, only: [:new, :create, :edit]
 
   # GET /categories
   # GET /categories.json
@@ -21,7 +21,6 @@ class Admin::CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    set_category_tree
   end
 
   # POST /categories

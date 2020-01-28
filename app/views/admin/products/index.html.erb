@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6">
+            <h4>Product List</h4>
+          </div>
+          <div class="col-6">
+            <%= link_to "<i class='fa fa-plus'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary float-right'%>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Availability</th>
+              <th>SKU</th>
+              <th>Part Number</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each_with_index do |product, index| %>
+              <tr>
+                <td><%= product.title %></td>
+                <td><%= product.status %></td>
+                <td><%= product.sku %></td>
+                <td><%= product.part_number %></td>
+                <td><%= product.category.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.on_hand %></td>
+                <td><%= product.description %></td>
+                <td>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_product_path(product) %>&nbsp
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_product_path(product) %>&nbsp
+                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "<i class='fa fa-plus'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary'%>
+      </div>
+    </div>
+  </div>
+</div>
+

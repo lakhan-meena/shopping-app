@@ -1,10 +1,19 @@
 <div class="row">
   <div class="col-md-12">
-    <h2>New Category</h2>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <%= render partial: 'form', category: @category %>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6">
+            <h4>New Category</h4>
+          </div>
+          <div class="col-6">
+            <%= link_to "Back", admin_categories_path, class: "float-right btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= render partial: 'form', category: @category %>
+      </div>
+    </div>
   </div>
 </div>
