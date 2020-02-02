@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
+    <%#= image_tag('logo', class: "navbar-brand") %>
     <%= link_to 'Shop App', root_path, class: 'navbar-brand', id: 'navbar-logo' %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,16 +20,14 @@
             <span class="badge badge-light">0</span>
           </a>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><%= image_tag('user', class: "rounded") %></a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <%= link_to '<i class="fa fa-user"></i> Profile'.html_safe, edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to '<i class="fa fa-power-off"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+

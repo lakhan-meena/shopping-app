@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="user-title">Personal Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="about-info">
+          <strong>First Name</strong>
+          <br>
+          <p class="muted-text"><%= @user.first_name %></p>
+        </div>
+        <div class="about-info">
+          <strong>Last Name</strong>
+          <br>
+          <p class="muted-text"><%= @user.last_name %></p>
+        </div>
+        <div class="about-info">
+          <strong>Username</strong>
+          <br>
+          <p class="muted-text"><%= @user.username %></p>
+        </div>
+        <div class="about-info">
+          <strong>Phone Number</strong>
+          <br>
+          <p class="muted-text"><%= @user.mobile_number %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="user-title">Professional Information</h5>
+      </div>
+      <div class="card-body">
+        <div class="about-info-p">
+          <strong>Email</strong>
+          <br>
+          <p class="text-muted"><%= @user.email %></p>
+        </div>
+        <div class="about-info-p">
+          <strong>Roles</strong>
+          <br>
+          <% @user.roles.each do |role| %>
+              <p class="text-muted" style="margin-top: 0;"><%= role.name.try(:capitalize) %></p>
+          <% end %>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
