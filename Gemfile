@@ -56,4 +56,5 @@ gem 'acts_as_tree', '~> 2.4'
 gem 'auto_strip_attributes', '~> 2.0', '>= 2.0.6'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'jquery-datatables'
 

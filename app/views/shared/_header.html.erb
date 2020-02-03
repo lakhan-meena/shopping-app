@@ -20,7 +20,12 @@
             <span class="badge badge-light">0</span>
           </a>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><%= image_tag('user', class: "rounded") %></a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+          <% if user_signed_in? && current_user.profile_picture.url.present? %>
+            <%= image_tag current_user.profile_picture.url, class: "rounded" %>
+          <% else %>
+            <%= image_tag('user', class: "rounded") %></a>
+          <% end %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to '<i class="fa fa-user"></i> Profile'.html_safe, edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to '<i class="fa fa-power-off"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

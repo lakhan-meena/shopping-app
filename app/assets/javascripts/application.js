@@ -16,5 +16,6 @@
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
+//= require datatables
 //= require toastr_rails
 //= require_tree .

@@ -5,7 +5,9 @@ class User < ApplicationRecord
   validates :mobile_number, :username, uniqueness: true
   auto_strip_attributes :first_name, :last_name, :mobile_number, :username, :email, squish: true
   before_save { self.email.downcase! }
-  after_save :asign_role
+  after_create :asign_role
+  mount_uploader :profile_picture, ImageUploader
+
 
   def admin?
     has_role?(:admin)

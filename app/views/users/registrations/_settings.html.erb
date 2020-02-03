@@ -9,6 +9,15 @@
           <%= f.error_notification %>
           <div class="row">
             <div class="col-md-12">
+              <div class="text-center">
+                <% if @user.profile_picture.url.present? %>
+                  <%= image_tag @user.profile_picture.url, class: "user-profile-image" %>
+                  <%= f.file_field :profile_picture, label: false, class: "user-pic-ctsm" %>
+                <% else %>
+                  <%= image_tag('user', class: "user-profile-image") %>
+                  <%= f.file_field :profile_picture, label: false, class: "user-pic-ctsm" %>
+                <% end %>
+              </div>
               <%= f.input :first_name, autofocus: true, label: "First Name" %>
               <%= f.input :last_name, autofocus: true, label: "Last Name"  %>
               <%= f.input :username, required: true %>

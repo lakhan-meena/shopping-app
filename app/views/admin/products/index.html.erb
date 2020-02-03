@@ -7,12 +7,12 @@
             <h4 class="card-title">Product List</h4>
           </div>
           <div class="col-6">
-            <%= link_to "<i class='fa fa-plus'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary float-right'%>
+            <%= link_to "<i class='fa fa-plus-circle'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary float-right'%>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <table class="table table-striped">
+        <table id= "product-datatable" class="table table-striped table-bordered">
           <thead>
             <tr>
               <th>Title</th>
@@ -46,9 +46,24 @@
             <% end %>
           </tbody>
         </table>
-        <%= link_to "<i class='fa fa-plus'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary'%>
+        <%= link_to "<i class='fa fa-plus-circle'></i> Add Product".html_safe, new_admin_product_path, class: 'btn btn-primary'%>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+   $(document).ready(function() {
+    $("#product-datatable").dataTable({
+      columnDefs: [{orderable: false, targets: [8]}],
+      pagingType: "simple_numbers",
+      info: true,
+      pageLength: 25,
+      lengthChange: true,
+      language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search Products..."
+      }
+    });
+  });
+</script>

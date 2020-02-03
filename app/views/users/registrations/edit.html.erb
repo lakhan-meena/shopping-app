@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col-md-12">
     <div class="background-image text-center">
-      <%= image_tag('user', class: "user-profile-image") %>
+      <% if user_signed_in? && current_user.profile_picture.url.present? %>
+        <%= image_tag current_user.profile_picture.url, class: "user-profile-image" %>
+      <% else %>
+        <%= image_tag('user', class: "user-profile-image") %>
+      <% end %>
       <h4 class="text-white"><%= @user.full_name %></h4>
     </div>
   </div>
