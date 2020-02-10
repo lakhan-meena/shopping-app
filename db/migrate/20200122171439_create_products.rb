@@ -13,6 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.decimal :price, precision: 8, scale: 2
       t.decimal :discount, precision: 8, scale: 2
       t.integer :on_hand, default: 0
+      t.boolean :featured, default: false
       t.timestamps
     end
   end
