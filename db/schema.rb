@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_123958) do
+ActiveRecord::Schema.define(version: 2020_01_22_171439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.text "description"
+    t.boolean "has_children", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "title"
+    t.string "sku"
+    t.string "part_number"
+    t.text "description"
+    t.integer "status", default: 0
+    t.datetime "imported_date"
+    t.integer "product_loaded", default: 0
+    t.string "product_image"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "discount", precision: 8, scale: 2
+    t.integer "on_hand", default: 0
+    t.boolean "featured", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"

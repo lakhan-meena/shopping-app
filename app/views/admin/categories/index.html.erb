@@ -30,10 +30,10 @@
                 <td><%= category.name %></td>
                 <td><%= category.description %></td>
                 <td><%= link_to "Childrens", admin_categories_url(parent_id: category) if category.children.present? %> </td>
-                <td>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_category_path(category) %>&nbsp
-                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_category_path(category) %>&nbsp
-                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <td class="actions">
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_category_path(category), class: "actions-fa-icon" %>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_category_path(category), class: "actions-fa-icon"%>
+                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "actions-fa-icon" %>
                 </td>
               </tr>
             <% end %>

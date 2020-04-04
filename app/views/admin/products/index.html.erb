@@ -37,10 +37,10 @@
                 <td><%= product.price %></td>
                 <td><%= product.on_hand %></td>
                 <td><%= product.description %></td>
-                <td>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_product_path(product) %>&nbsp
-                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_product_path(product) %>&nbsp
-                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <td class="actions">
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_product_path(product), class: "actions-fa-icon" %>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_product_path(product), class: "actions-fa-icon" %>
+                  <%= link_to "<i class='fa fa-trash'></i>".html_safe, admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "actions-fa-icon" %>
                 </td>
               </tr>
             <% end %>
