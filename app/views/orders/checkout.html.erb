@@ -1,0 +1,99 @@
+<div class="row">
+	<div class="col-md-4 order-md-2 mb-4">
+		<div class="card">
+			<div class="card-header">
+			  <h4 class="d-flex justify-content-between align-items-center mb-3">
+			    <span class="text-muted">Your cart</span>
+			    <span class="badge badge-secondary badge-pill"><%= current_order_items_count %></span>
+			  </h4>
+			</div>
+			<div class="card-body">
+			  <ul class="list-group mb-3">
+			  	<% if @order && @order.order_items %>
+			    	<li class="list-group-item d-flex justify-content-between lh-condensed">
+				      <h6 class="my-0">Subtotal</h6>
+				      <span class="text-muted"><%= @order.subtotal %></span>
+				    </li>
+				    <li class="list-group-item d-flex justify-content-between lh-condensed">
+				      <h6 class="my-0">Tax Price</h6>
+				      <span class="text-muted"><%= @order.tax %></span>
+				    </li>
+				    <li class="list-group-item d-flex justify-content-between lh-condensed">
+				      <h6 class="my-0">Shipping Price </h6>
+				      <span class="text-muted"><%= @order.shipping %></span>
+				    </li>
+				    <li class="list-group-item d-flex justify-content-between lh-condensed">
+				      <h6 class="my-0">Total</h6>
+				      <span class="text-muted"><%= @order.total %></span>
+				    </li>
+			    <% end %>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 order-md-1">
+		<div class="card">
+			<div class="card-header">
+		  	<h4 class="mb-3">Personal Information</h4>
+		  </div>
+		  <div class="card-body">
+			  <%= form_for @order , url: {action: "update_order_details"}, method: :post do |f| %>
+					<div class="row">
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :first_name %>
+   						<%= f.text_field :first_name, class: "form-control", required: true %>
+			      </div>
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :last_name %>
+   						<%= f.text_field :last_name, class: "form-control", required: true %>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :email %>
+   						<%= f.text_field :email, class: "form-control", required: true %>
+			      </div>
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :phone_number %>
+   						<%= f.text_field :phone_number, class: "form-control", required: true %>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="card">
+			  <div class="card-header">
+		  		<h4 class="mb-3">Billing Information</h4>
+		  	</div>
+		  	<div class="card-body">
+			    <div class="mb-3">
+			      <%= f.label :address %>
+   					<%= f.text_field :address, class: "form-control", required: true %>
+			    </div>
+			    <div class="row">
+			    	<div class="col-md-6 mb-3">
+				      <%= f.label :city %>
+	   					<%= f.text_field :city, class: "form-control", required: true %>
+				    </div>
+				   	<div class="col-md-6 mb-3">
+			        <%= f.label :state %>
+   						<%= f.text_field :state, class: "form-control", required: true %>
+			      </div>
+				  </div>
+			    <div class="row">
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :country %>
+   						<%= f.text_field :country, class: "form-control", required: true %>
+			      </div>
+			      <div class="col-md-6 mb-3">
+			        <%= f.label :zip %>
+   						<%= f.text_field :zip, class: "form-control" , required: true%>
+			      </div>
+			    </div>
+		    	<hr class="mb-4">
+			    <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

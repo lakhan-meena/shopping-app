@@ -10,4 +10,9 @@ Rails.application.routes.draw do
     resources :categories
     resources :products
   end
+  resources :carts, only: [:index]
+  resources :products, only: [:index, :show]
+  resources :order_items, only: [:create, :update, :destroy]
+  get 'orders/checkout'
+  post 'orders/update_order_details'
 end

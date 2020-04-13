@@ -1,0 +1,31 @@
+<div class="col-12 col-sm-3">
+  <div class="card bg-light mb-3">
+    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
+    <ul class="list-group category_block">
+      <%= link_to "All Products", products_path, class: "list-group-item" %>
+      <% @categories.each do |category| %>
+        <%= link_to "#{category.name}", products_path(category_id: category.id), class: "list-group-item" %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="card bg-light mb-4">
+    <div class="card-header bg-primary text-white text-uppercase">Recent added product</div>
+    <div class="card">
+      <% product = Product.last %>
+      <% if product.product_image.present? %>
+        <%= image_tag product.product_image.url, class: "card-img-top custom_img_last_product" %>
+      <% else %>
+        <%= image_tag('no_product_img', class: "card-img-top custom_img_last_product") %>
+      <% end %>
+      <div class="card-body">
+        <h4><%= link_to "#{product.title}", product_path(product), class: "card-title" %></h4>
+        <p class="card-text"><%= truncate(product.description, length: 25) %></p>
+        <div class="row">
+          <div class="col">
+            <span class="btn btn-primary "><%= product.price %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

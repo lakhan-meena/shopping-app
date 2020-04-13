@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :order_items, dependent: :destroy
   belongs_to :category
   validates :title, :price, presence: true
   validates :price, :discount, :on_hand, numericality: { greater_than_or_equal_to: 0, allow_blank: true }

@@ -5,6 +5,25 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :current_order, :current_order_items_count
+
+  def current_order
+    if session[:order_id].nil?
+      Order.new
+    else
+      Order.find_by(id: session[:order_id])
+    end
+  end
+
+  def current_order_items_count
+    if session[:order_id].nil?
+      0
+    else
+      order = Order.find_by(id: session[:order_id])
+      order.order_items.count if order
+    end
+  end
+
   protected
     def configure_permitted_parameters
       added_attributes = [:first_name, :last_name, :username, :mobile_number, :profile_picture, :email, :password, :password_confirmation, :remember_me]

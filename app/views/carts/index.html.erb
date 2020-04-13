@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-header">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    Shipping cart
+    <a href="<%= products_path %>" class="btn btn-outline-primary btn-sm pull-right">Continue Shopping</a>
+    <div class="clearfix"></div>
+	</div>
+  <% if current_order.present? && @order_items.present? %>
+    <div class="card-body">
+    <table class="table borderless table-striped">
+    	<div class="row">
+    		<thead>
+    			<tr>
+    				<th></th>
+    				<th>Item</th>
+    				<th>Quantity</th>
+    				<th>Item Price</th>
+    				<th>Total Price</th>
+    				<th>Actions</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<% @order_items.each do |order_item| %>
+	    			<tr>
+	    				<td>
+	    					<% if order_item.product.product_image.present? %>
+	      					<%= image_tag order_item.product.product_image.url, class: "img-responsive cart_image" %>
+						    <% else %>
+						      <%= image_tag('no_product_img', class: "img-responsive cart_image") %>
+						    <% end %>
+	    				</td>
+	    				<td>
+	        			<span class="product-name"><strong><%= order_item.product.title %></strong></span>
+	        			<p><span>SKU:</span> <%= order_item.product.sku %></p>
+	    				</td>
+	    				<td>
+	    					<div class="quantity">
+	              	<input type="number" step="1" max="99" min="1" value="<%= order_item.quantity %>" title="Qty" class="qty" size="4">
+	            	</div>	
+	    				</td>
+	    				<td>
+	          		<h6><%= order_item.item_price %></h6>
+	    				</td>
+	    				<td>
+	    					<h6><%= order_item.total_price %></h6>
+	    				</td>
+	    				<td class="actions">
+	    					<%= link_to "<i class='fa fa-trash'></i>".html_safe, order_item_path(order_item), method: :delete, class: "actions-fa-icon" %>
+	    				</td>
+	    			</tr>
+	    		<% end %>
+    		</tbody>
+    	</div>
+    </table>
+    <hr>
+    <div class="pull-right">
+      <strong>SubTotal:</strong> <%= current_order.subtotal %><br/>
+      <strong>Tax:</strong> <%= current_order.tax %><br/>
+      <strong>Shipping:</strong> <%= current_order.shipping %><br/>
+      <strong>Total:</strong> <%= current_order.total %><br/>
+     <a href="" class="btn btn-success pull-right">PROCEED TO CHECKOUT</a>
+    </div>
+    </div>
+  <% else %>
+    <div class="card-body">
+      <div class="text-center">
+        <%= image_tag('empty-cart', class: "img-responsive") %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -14,10 +14,10 @@
         <li class="nav-item">
           <%= link_to 'Categories', admin_categories_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-success btn-sm ml-3" href="cart.html">
+        <li class="nav-item custom_add_to_cart">
+          <a class="btn btn-success btn-sm ml-3 custom_cart_color" href="<%= carts_url %>">
             <i class="fa fa-shopping-cart"></i> Cart
-            <span class="badge badge-light">0</span>
+            <span class="badge badge-light"><%= current_order_items_count%></span>
           </a>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">

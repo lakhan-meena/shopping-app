@@ -57,4 +57,5 @@ gem 'auto_strip_attributes', '~> 2.0', '>= 2.0.6'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-datatables'
+gem 'will_paginate', '~> 3.1.0'
 

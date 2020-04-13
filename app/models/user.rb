@@ -7,7 +7,7 @@ class User < ApplicationRecord
   before_save { self.email.downcase! }
   after_create :asign_role
   mount_uploader :profile_picture, ImageUploader
-
+  has_many :orders
 
   def admin?
     has_role?(:admin)

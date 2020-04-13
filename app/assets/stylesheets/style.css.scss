@@ -18,7 +18,14 @@ body{
   letter-spacing: -1px;
   font-weight: bold;
 }
-
+.custom_add_to_cart{
+  padding-top: 8px;
+  padding-right: 5px;
+}
+.custom_cart_color{
+  background-color: #28a745 !important;
+  border-color: #28a745;
+}
 /*========== Start Login Form CSS ==========*/
 .login-header{
   text-align: center;
@@ -45,7 +52,7 @@ body{
 }
 /*========== Start Button CSS ==========*/
 .btn{
-  background: #0072ff;
+  /*background: #0072ff;*/
 }
 .fb-btn{
   background-color: #3b5998;
@@ -195,4 +202,77 @@ td.actions a.actions-fa-icon{
   text-align: center;
   vertical-align: middle;
   text-align: center;
+}
+.pdbtm_10{
+  padding-bottom: 10px
+}
+
+.card-img-top{
+  border-bottom: 1px solid #0072ff;
+}
+.custom_img_list{
+  height: 170px;
+  width: auto;
+}
+.custom_img_last_product{
+  height: 250px;
+  width: auto;
+}
+.list-group-item{
+  text-decoration: none !important;
+  color: #000000;
+}
+.img-fluid-show{
+  height: 325px;
+  width: 550px;
+}
+.product-title{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/*Pagination CSS*/
+.digg_pagination {
+  background: white;
+  cursor: default;
+ }
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  padding: 0.2em 0.5em;
+  display: block;
+  float: left;
+  margin-right: 1px; 
+}
+.digg_pagination .disabled {
+  color: #999999;
+  border: 1px solid #dddddd; 
+}
+.digg_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background: #2e6ab1;
+  color: white;
+  border: 1px solid #2e6ab1; 
+}
+.digg_pagination a {
+  text-decoration: none;
+  color: #105cb6;
+  border: 1px solid #9aafe5; 
+}
+.digg_pagination a:hover, .digg_pagination a:focus {
+  color: #000033;
+  border-color: #000033; 
+}
+.digg_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; 
+}
+.cart_image{
+  width: 80px;
+  height: 60px;
+}
+.borderless th {
+  border: none;
 }
